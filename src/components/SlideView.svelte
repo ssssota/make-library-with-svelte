@@ -1,17 +1,25 @@
 <script lang="ts">
-  export let onLeftClick: svelte.JSX.EventHandler<MouseEvent, HTMLDivElement> | undefined = undefined;
-  export let onRightClick: svelte.JSX.EventHandler<MouseEvent, HTMLDivElement> | undefined = undefined;
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher<{
+    leftclick: void;
+    rightclick: void;
+  }>();
+  export let enableLeft = true;
+  export let enableRight = true;
+  const onLeftClick = () => dispatch("leftclick");
+  const onRightClick = () => dispatch("rightclick");
 </script>
 
 <div class="wrapper">
   <section class="slide">
     <slot />
   </section>
-  {#if onLeftClick != null}
-    <div class:cursor={onLeftClick != null} class="left" on:click={onLeftClick} />
+  {#if enableLeft}
+    <button class="left cursor" on:click={onLeftClick} />
   {/if}
-  {#if onRightClick != null}
-    <div class:cursor={onRightClick != null} class="right" on:click={onRightClick} />
+  {#if enableRight}
+    <button class="right cursor" on:click={onRightClick} />
   {/if}
 </div>
 
@@ -30,6 +38,12 @@
     align-items: center;
   }
 
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
   .left {
     position: absolute;
     width: 50%;
@@ -38,7 +52,9 @@
     top: 0;
   }
   .left.cursor {
-    cursor: url(../images/left.svg) 0 0, pointer;
+    cursor:
+      url(../images/left.svg) 0 0,
+      pointer;
   }
   .right {
     position: absolute;
@@ -48,7 +64,9 @@
     top: 0;
   }
   .right.cursor {
-    cursor: url(../images/right.svg) 0 0, pointer;
+    cursor:
+      url(../images/right.svg) 0 0,
+      pointer;
   }
   :root {
     --slide-width: min(100vw, calc(400vh / 3));
@@ -71,7 +89,29 @@
   .slide :global(h3) {
     font-size: calc(var(--base-font-size) * 1.4);
   }
-  .slide :global(h4), .slide :global(h5), .slide :global(h6), .slide :global(p), .slide :global(li) {
+  .slide :global(h4),
+  .slide :global(h5),
+  .slide :global(h6),
+  .slide :global(p),
+  .slide :global(li),
+  .slide :global(dl),
+  .slide :global(table),
+  .slide :global(blockquote),
+  .slide :global(pre) {
     font-size: calc(var(--base-font-size) * 1.2);
+  }
+  .slide :global(small) {
+    font-size: calc(var(--base-font-size) * 0.8);
+  }
+  .slide :global(li p) {
+    margin: 0;
+  }
+  .slide :global(pre) {
+    background-color: #f0f0f0;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  .slide :global(code) {
+    color: #5d3ee8;
   }
 </style>

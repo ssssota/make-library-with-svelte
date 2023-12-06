@@ -3,8 +3,8 @@
 </script>
 
 <CenteringPane>
-  <h1>Hello Svelide</h1>
-  <p>This slide is an example.</p>
+  <h1>Svelteでライブラリを作る</h1>
+  <p>Svelte Japan Online Meetup #1</p>
 </CenteringPane>
 
 <style>

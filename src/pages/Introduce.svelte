@@ -1,6 +1,6 @@
 <script lang="ts">
-  import PaddingPane from '../components/PaddingPane.svelte';
-  import Markdown from 'svelte-exmarkdown';
+  import Markdown from "svelte-exmarkdown";
+  import PaddingPane from "../components/PaddingPane.svelte";
   const md = `
 ## 誰？
 
@@ -8,8 +8,7 @@
 - フロントエンドエンジニア
 - \`{ x: 'ssssotaro', github: 'ssssota' }\`
 - ![icon](https://github.com/ssssota.png?size=100)
-- 業務Svelte経験ほぼ無し
-- svelte-exmarkdown作者
+- svelte-exmarkdownっていうのを作っている
   - このスライドもsvelte-exmarkdownが使われています
   `;
 </script>

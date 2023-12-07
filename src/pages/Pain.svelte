@@ -6,7 +6,7 @@
 
 Svelteはその設計上UIコンポーネントライブラリの**設計**がReactなどJSX系ライブラリと比較して難しい。  
 これは第一級オブジェクトとして扱える範囲が狭いことに起因する。  
-→CSSカスタムプロパティ(変数)、svelte/action(use:*)もうまく使おう。
+→CSSカスタムプロパティ(変数)、svelte/action(use:*)、\`bind:this\`、\`export function\`をうまく使おう。
   `;
 </script>
 

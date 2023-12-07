@@ -2,7 +2,7 @@
   import Markdown from "svelte-exmarkdown";
   import PaddingPane from "../components/PaddingPane.svelte";
   const md = `
-## Svelte5について
+## Svelte v5について
 
 キターーー！！！🔥🔥🔥（まだですが）
 
